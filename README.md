@@ -7,6 +7,10 @@ This project is inspired by the [TodoMVC] project. The only real difference is t
 [TodoMVC]: https://github.com/tastejs/todomvc
 [requirements]: REQUIREMENTS.md
 
+### Build status
+
+[![Build status](https://ci.appveyor.com/api/projects/status/eqild79imnyudywt/branch/master?svg=true)](https://ci.appveyor.com/project/sclarke81/todomvc-net/branch/master)
+
 ## Examples
 
 1. [Redux.NET](Examples/Redux.NET/README.md)
