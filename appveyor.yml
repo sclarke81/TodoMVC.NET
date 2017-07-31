@@ -12,6 +12,9 @@ init:
 # clone directory
 clone_folder: c:\project
 
+cache:
+  - '%LocalAppData%\NuGet\v3-cache'
+
 #---------------------------------#
 #       build configuration       #
 #---------------------------------#
@@ -28,3 +31,7 @@ build:
 
   # MSBuild verbosity level
   verbosity: normal
+
+# scripts to run before build
+before_build:
+  - nuget restore .\Examples\Redux.NET\TodoMvc.sln
