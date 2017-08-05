@@ -28,6 +28,8 @@ namespace Main.ViewModels
 
         public ICommand ToDoStateChangedCommand { get; set; }
 
+        public ICommand DeleteItemCommand { get; set; }
+
         private IEnumerable<ToDo> FilterItems(Filter filter, IEnumerable<ToDo> toFilter)
         {
             IEnumerable<ToDo> retval = null;
@@ -57,14 +59,13 @@ namespace Main.ViewModels
             //Delegate command is basically a helper function you specify a delegate to run with.
             ToDoStateChangedCommand = new DelegateCommand<ToDo>((todo) => {
                 eventAggregator.GetEvent<ToDoListChanged>()
-                .Publish(
-                    new ToDoListChangedPayload()
-                    {
-                        Action = ToDoListChangedPayload.ChangeAction.ChangeState,
-                        ToDo = todo
-                    }
-                    );
+                .Publish();
                 VisibleItems = FilterItems(_filter, model.ToDos);
+            });
+            DeleteItemCommand = new DelegateCommand<ToDo>((todo) => {
+                model.ToDos.Remove(todo);
+                eventAggregator.GetEvent<ToDoListChanged>()
+                .Publish();
             });
             //Any module can subscribe to or publish events on the event aggregator. The events themselves are
             //defined in a shared infrastructure project. The eventaggregator is responsible for telling the 
@@ -75,7 +76,7 @@ namespace Main.ViewModels
                     VisibleItems = FilterItems(_filter, model.ToDos);
                 });
             eventAggregator.GetEvent<ToDoListChanged>()
-                .Subscribe((payload) => {
+                .Subscribe(() => {
                     VisibleItems = FilterItems(_filter, model.ToDos);
                 });
         }

@@ -16,7 +16,7 @@ namespace Footer
     {
         public FooterViewModel(IModel model, IEventAggregator eventAggregator)
         {
-            eventAggregator.GetEvent<ToDoListChanged>().Subscribe((payload) => {
+            eventAggregator.GetEvent<ToDoListChanged>().Subscribe(() => {
                 RemainingTaskCount = model.ToDos.Where((td) => td.State == false)
                 .Count()
                 .ToString();
@@ -43,13 +43,7 @@ namespace Footer
                 {
                     model.ToDos.Add(todo);
                 }
-                eventAggregator.GetEvent<ToDoListChanged>().Publish(
-                    new ToDoListChangedPayload()
-                    {
-                        Action = ToDoListChangedPayload.ChangeAction.ClearActive,
-                        ToDo = null
-                    }
-                    );
+                eventAggregator.GetEvent<ToDoListChanged>().Publish();
             });
         }
 

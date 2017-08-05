@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Main", "Main\Main.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{4C763117-6BFF-4D18-BA8A-F7A27343C2DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoMvc", "..\Redux.NET\TodoMvc\TodoMvc.csproj", "{8C4A4AB3-CAF7-455F-803B-EDF5E6E48DA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoMvc.App", "..\Redux.NET\TodoMvc.App\TodoMvc.App.csproj", "{5CE97BDF-E752-45DA-B18E-4442AD05992B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{4C763117-6BFF-4D18-BA8A-F7A27343C2DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C763117-6BFF-4D18-BA8A-F7A27343C2DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C763117-6BFF-4D18-BA8A-F7A27343C2DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C4A4AB3-CAF7-455F-803B-EDF5E6E48DA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C4A4AB3-CAF7-455F-803B-EDF5E6E48DA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C4A4AB3-CAF7-455F-803B-EDF5E6E48DA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C4A4AB3-CAF7-455F-803B-EDF5E6E48DA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CE97BDF-E752-45DA-B18E-4442AD05992B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CE97BDF-E752-45DA-B18E-4442AD05992B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CE97BDF-E752-45DA-B18E-4442AD05992B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CE97BDF-E752-45DA-B18E-4442AD05992B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -21,18 +21,32 @@ namespace Header.ViewModels
         
         public ICommand AddTaskCommand { get; set; }
 
+        public ICommand SelectAllCommand { get; set; }
+
         public HeaderViewModel(IModel model, IEventAggregator eventAggregator)
         {
             AddTaskCommand = new DelegateCommand(() => {
                 var newTodo = new ToDo() { Name = TaskName, State = false };
                 model.ToDos.Add(newTodo);
-                eventAggregator.GetEvent<Infrastructure.ToDoListChanged>().Publish(
-                    new ToDoListChangedPayload()
+                eventAggregator.GetEvent<Infrastructure.ToDoListChanged>().Publish();
+            });
+
+            SelectAllCommand = new DelegateCommand(() =>
+            {
+                bool bAllSelected = true;
+                foreach (var todo in model.ToDos)
+                {
+                    if (todo.State == false)
                     {
-                        Action = ToDoListChangedPayload.ChangeAction.Add,
-                        ToDo = newTodo
+                        bAllSelected = false;
+                        break;
                     }
-                    );
+                }
+                foreach (var todo in model.ToDos)
+                {
+                    todo.State = !bAllSelected;
+                }
+                eventAggregator.GetEvent<Infrastructure.ToDoListChanged>().Publish();
             });
         }
     }

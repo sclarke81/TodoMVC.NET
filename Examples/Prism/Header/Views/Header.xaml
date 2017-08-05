@@ -9,6 +9,7 @@
              mc:Ignorable="d" d:DesignWidth="300">
     <DockPanel>
         <Button Name="Button" Command="{Binding AddTaskCommand}" DockPanel.Dock="Right">Add</Button>
+        <Button FontFamily="Segoe UI Symbol" Content="&#xE1FD;" Command="{Binding SelectAllCommand}"></Button>
         <TextBox Text="{Binding TaskName}" DockPanel.Dock="Left"/>
     </DockPanel>
 </UserControl>
