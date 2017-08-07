@@ -17,6 +17,9 @@ This project is inspired by the [TodoMVC] project. The only real difference is t
 1. ReactiveUI
 1. Prism
 1. MVVM
+1. Reactive extensions
+1. MVVMLight
+1. Caliburn micro
 
 ## Contributions and feedback
 
