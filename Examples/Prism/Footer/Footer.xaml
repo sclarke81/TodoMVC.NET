@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="Footer.Footer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Footer"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Left" FlowDirection="LeftToRight" Orientation="Horizontal">
+            <TextBlock>Active:</TextBlock>
+            <TextBlock Text="{Binding RemainingTaskCount}" Width="30"/>
+            <RadioButton IsChecked="True" Command="{Binding ShowAllCommand}">All</RadioButton>
+            <RadioButton Command="{Binding ShowActiveCommand}">Active</RadioButton>
+            <RadioButton Command="{Binding ShowCompletedCommand}">Completed</RadioButton>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" FlowDirection="RightToLeft">
+            <Button Width="150" Command="{Binding ClearAllCommand}">Clear completed</Button>
+        </StackPanel>
+    </DockPanel>
+</UserControl>
