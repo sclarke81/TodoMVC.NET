@@ -20,6 +20,8 @@ This project is inspired by the [TodoMVC] project. The only real difference is t
 
 ## Contributions and feedback
 
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/TodoMVC-NET?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 Both contributions and feedback are gratefully received. I have very little experience with these paradigms but I thought that sharing my effort to test them may help others as well as provide the opportunity for me to get some feedback.
 
 ## License
