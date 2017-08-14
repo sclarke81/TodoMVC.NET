@@ -29,10 +29,9 @@ Both contributions and feedback are gratefully received. I have very little expe
 
 ## License
 
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE)
+[![third-party notices](https://img.shields.io/badge/notices-third--party-blue.svg)](THIRD-PARTY-NOTICES.md)
+
 Everything in this repository is MIT License unless otherwise specified.
 
 MIT © Stephen Clarke.
-
-The full license can be found in [LICENSE](LICENSE).
-
-Third-party notices can be found in [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
