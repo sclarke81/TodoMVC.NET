@@ -19,19 +19,12 @@ cache:
 #       build configuration       #
 #---------------------------------#
 
-# build platform, i.e. x86, x64, Any CPU. This setting is optional.
-platform: Any CPU
-
 # build Configuration, i.e. Debug, Release, etc.
 configuration: Release
 
 build:
   parallel: true                  # enable MSBuild parallel builds
-  project: .\Examples\Redux.NET\TodoMvc.sln
+  project: build.proj
 
   # MSBuild verbosity level
   verbosity: normal
-
-# scripts to run before build
-before_build:
-  - nuget restore .\Examples\Redux.NET\TodoMvc.sln
