@@ -10,7 +10,7 @@ trim_trailing_whitespace = true
 indent_size = 4
 
 # Xml project files
-[*.{csproj}]
+[*.{csproj,proj}]
 indent_size = 2
 
 # Xml config files

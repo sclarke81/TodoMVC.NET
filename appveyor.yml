@@ -15,11 +15,6 @@ clone_folder: c:\project
 cache:
   - '%LocalAppData%\NuGet\v3-cache'
 
-environment:
-  matrix:
-  - solution_name: .\Examples\Redux.NET\TodoMvc.sln
-  - solution_name: .\Examples\Prism\PrismToDo.sln
-
 #---------------------------------#
 #       build configuration       #
 #---------------------------------#
@@ -32,11 +27,7 @@ configuration: Release
 
 build:
   parallel: true                  # enable MSBuild parallel builds
-  project: %solution_name%
+  project: build.proj
 
   # MSBuild verbosity level
   verbosity: normal
-
-# scripts to run before build
-before_build:
-  - nuget restore %solution_name%
