@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="ReactiveUIExample.Footer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ReactiveUIExample"
+             mc:Ignorable="d">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
+            <TextBlock>Active: </TextBlock>
+            <TextBlock Text="{Binding NumberOfActiveItems}"/>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
+            <RadioButton IsChecked="{Binding IsAllChecked, Mode=OneWay}" Command="{Binding ShowAll}">All</RadioButton>
+            <RadioButton IsChecked="{Binding IsActiveChecked, Mode=OneWay}" Command="{Binding ShowActive}">Active</RadioButton>
+            <RadioButton IsChecked="{Binding IsCompletedChecked, Mode=OneWay}" Command="{Binding ShowCompleted}">Completed</RadioButton>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" FlowDirection="RightToLeft">
+            <Button Command="{Binding ClearSelected}">Clear Selected</Button>
+        </StackPanel>
+    </DockPanel>
+</UserControl>
