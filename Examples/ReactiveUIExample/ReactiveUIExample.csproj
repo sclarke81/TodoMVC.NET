@@ -35,14 +35,8 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="ReactiveUI, Version=7.4.0"/>
-    <PackageReference Include="Splat, Version=1.4.0"/>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <PackageReference Include="System.Reactive.Core, Version=2.2.5"/>
-    <PackageReference Include="System.Reactive.Interfaces, Version=2.2.5"/>
-    <PackageReference Include="System.Reactive.Linq, Version=2.2.5"/>
-    <PackageReference Include="System.Reactive.PlatformServices, Version=2.2.5"/>
-    <PackageReference Include="System.Reactive.Windows.Threading, Version=2.2.5"/>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
