@@ -14,8 +14,8 @@ This project is inspired by the [TodoMVC] project. The only real difference is t
 ## Examples
 
 1. [Redux.NET](Examples/Redux.NET/README.md)
-1. ReactiveUI
-1. Prism
+1. [ReactiveUI](Examples/ReactiveUIExample/README.md)
+1. [Prism](Examples/Prism/README.md)
 1. MVVM
 1. Reactive extensions
 1. MVVMLight
