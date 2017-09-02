@@ -18,7 +18,7 @@ namespace PrismRedux.NET.Shell
 
         protected override DependencyObject CreateShell()
         {
-            return new PrismRedux.NET.Shell.Shell();
+            return new Shell();
         }
 
         protected override void InitializeShell()
