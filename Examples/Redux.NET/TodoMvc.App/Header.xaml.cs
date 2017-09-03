@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace TodoMvc.App
+namespace PrismRedux.NET.StoreNS.App
 {
     /// <summary>
     /// Interaction logic for Header.xaml

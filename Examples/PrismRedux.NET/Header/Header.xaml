@@ -6,5 +6,12 @@
              xmlns:local="clr-namespace:PrismRedux.NET.Header"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <TextBlock>Header</TextBlock>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <CheckBox x:Name="markAllAsComplete" Grid.Column="0" Click="markAllAsComplete_Click" VerticalAlignment="Center"/>
+        <TextBox x:Name="title" Grid.Column="1" PreviewKeyDown="title_PreviewKeyDown" />
+    </Grid>
 </UserControl>

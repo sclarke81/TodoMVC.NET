@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TodoMvc.App.Properties
+namespace PrismRedux.NET.StoreNS.App.Properties
 {
 
 

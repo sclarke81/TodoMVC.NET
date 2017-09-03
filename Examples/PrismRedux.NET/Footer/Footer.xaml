@@ -6,5 +6,21 @@
              xmlns:local="clr-namespace:Footer"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <TextBlock>Footer</TextBlock>
+    <Grid>
+        <Label x:Name="counter" HorizontalAlignment="Left"/>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Center">
+            <StackPanel.Resources>
+                <Style TargetType="RadioButton">
+                    <Setter Property="Margin" Value="5" />
+                </Style>
+            </StackPanel.Resources>
+            <RadioButton x:Name="filterAll" Content="All" Click="filterAll_Click" />
+            <RadioButton x:Name="filterActive" Content="Active" Click="filterActive_Click" />
+            <RadioButton x:Name="filterCompleted" Content="Completed" Click="filterCompleted_Click" />
+        </StackPanel>
+        <Button x:Name="clearCompleted"
+                Content="Clear completed"
+                HorizontalAlignment="Right"
+                Click="clearCompleted_Click" />
+    </Grid>
 </UserControl>

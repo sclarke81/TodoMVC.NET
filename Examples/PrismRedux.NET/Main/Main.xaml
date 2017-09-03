@@ -6,5 +6,43 @@
              xmlns:local="clr-namespace:Main"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <TextBlock>Main</TextBlock>
+    <Grid>
+        <ItemsControl x:Name="todos">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid x:Name="row">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <CheckBox Grid.Column="0"
+                                  IsChecked="{Binding IsCompleted}"
+                                  Tag="{Binding Id}"
+                                  Click="CheckBox_Click"
+                                  VerticalAlignment="Center"/>
+                        <Label Grid.Column="1" Content="{Binding Title}"/>
+                        <Button x:Name="button"
+                                Grid.Column="2"
+                                Content="Delete"
+                                Tag="{Binding Id}"
+                                Click="Button_Click" />
+                    </Grid>
+                    <DataTemplate.Triggers>
+                        <Trigger SourceName="row" Property="IsMouseOver" Value="True">
+                            <Setter TargetName="button" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                        <Trigger SourceName="row" Property="IsMouseOver" Value="False">
+                            <Setter TargetName="button" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
 </UserControl>

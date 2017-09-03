@@ -4,7 +4,7 @@ using System.Reactive.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace TodoMvc.App
+namespace PrismRedux.NET.StoreNS.App
 {
     /// <summary>
     /// Interaction logic for Main.xaml
