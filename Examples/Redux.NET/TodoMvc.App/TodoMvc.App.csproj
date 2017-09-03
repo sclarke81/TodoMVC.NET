@@ -117,5 +117,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TodoMvc\TodoMvc.csproj">
+      <Project>{8c4a4ab3-caf7-455f-803b-edf5e6e48da0}</Project>
+      <Name>TodoMvc</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

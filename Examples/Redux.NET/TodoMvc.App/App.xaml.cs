@@ -1,9 +1,9 @@
 ﻿using System.Collections.Immutable;
 using System.Windows;
 using Redux;
-using PrismRedux.NET.StoreNS.States;
+using TodoMvc.States;
 
-namespace PrismRedux.NET.StoreNS.App
+namespace TodoMvc.App
 {
     /// <summary>
     /// Interaction logic for App.xaml

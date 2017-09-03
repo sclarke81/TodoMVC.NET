@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6C595B8A-4196-4C4B-A2C8-D35DBBFA3E84}</ProjectGuid>
+    <ProjectGuid>{8C4A4AB3-CAF7-455F-803B-EDF5E6E48DA0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TodoMvc</RootNamespace>

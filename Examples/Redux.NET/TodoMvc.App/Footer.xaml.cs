@@ -3,9 +3,9 @@ using System.Linq;
 using System.Reactive.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using PrismRedux.NET.StoreNS.States;
+using TodoMvc.States;
 
-namespace PrismRedux.NET.StoreNS.App
+namespace TodoMvc.App
 {
     /// <summary>
     /// Interaction logic for Footer.xaml
