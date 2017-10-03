@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Immutable;
 using System.Linq;
 using FluentAssertions;
 using Redux;
@@ -14,12 +13,8 @@ namespace TodoMvc.Tests
         public static void Todo_can_be_added()
         {
             // Arrange
-            var todoTitle = "title";
-            var store = new Store<ApplicationState>(Reducers.ReduceApplication, new ApplicationState()
-            {
-                Filter = TodosFilter.All,
-                Todos = ImmutableArray.Create<Todo>()
-            });
+            string todoTitle = "title";
+            Store<ApplicationState> store = StoreHelpers.GetStore();
 
             // Act
             store.Dispatch(new TodoAddedAction() { Text = todoTitle });
@@ -34,16 +29,9 @@ namespace TodoMvc.Tests
         {
             // Arrange
             var id = new Guid();
-            var store = new Store<ApplicationState>(Reducers.ReduceApplication, new ApplicationState()
-            {
-                Filter = TodosFilter.All,
-                Todos = ImmutableArray.Create<Todo>(new Todo
-                {
-                    Title = "title",
-                    Id = id,
-                    IsCompleted = false
-                })
-            });
+            Store<ApplicationState> store = StoreHelpers
+                .GetStore()
+                .AddTodo("title", id, false);
 
             // Act
             store.Dispatch(new TodoDeletedAction() { Id = id });
@@ -57,17 +45,10 @@ namespace TodoMvc.Tests
         {
             // Arrange
             var id = new Guid();
-            var newTitle = "new title";
-            var store = new Store<ApplicationState>(Reducers.ReduceApplication, new ApplicationState()
-            {
-                Filter = TodosFilter.All,
-                Todos = ImmutableArray.Create<Todo>(new Todo
-                {
-                    Title = "title",
-                    Id = id,
-                    IsCompleted = false
-                })
-            });
+            string newTitle = "new title";
+            Store<ApplicationState> store = StoreHelpers
+               .GetStore()
+               .AddTodo("title", id, false);
 
             // Act
             store.Dispatch(new TodoEditedAction() { Id = id, Text = newTitle });
@@ -83,16 +64,9 @@ namespace TodoMvc.Tests
         {
             // Arrange
             var id = new Guid();
-            var store = new Store<ApplicationState>(Reducers.ReduceApplication, new ApplicationState()
-            {
-                Filter = TodosFilter.All,
-                Todos = ImmutableArray.Create<Todo>(new Todo
-                {
-                    Title = "title",
-                    Id = id,
-                    IsCompleted = !isComplete
-                })
-            });
+            Store<ApplicationState> store = StoreHelpers
+              .GetStore()
+              .AddTodo("title", id, !isComplete);
 
             // Act
             store.Dispatch(new TodoIsCompletedChangedAction() { Id = id, IsCompleted = isComplete });
@@ -105,25 +79,10 @@ namespace TodoMvc.Tests
         public static void Completed_todos_can_be_cleared()
         {
             // Arrange
-            var store = new Store<ApplicationState>(Reducers.ReduceApplication, new ApplicationState()
-            {
-                Filter = TodosFilter.All,
-                Todos = ImmutableArray.Create<Todo>(new Todo[]
-                {
-                    new Todo
-                    {
-                        Title = "title1",
-                        Id = new Guid(),
-                        IsCompleted = false
-                    },
-                    new Todo
-                    {
-                        Title = "title2",
-                        Id = new Guid(),
-                        IsCompleted = true
-                    }
-                })
-            });
+            Store<ApplicationState> store = StoreHelpers
+                .GetStore()
+                .AddTodo("title1", new Guid(), false)
+                .AddTodo("title2", new Guid(), true);
 
             // Act
             store.Dispatch(new CompletedTodosClearedAction());
@@ -138,25 +97,10 @@ namespace TodoMvc.Tests
         public static void All_todos_iscomplete_can_be_changed(bool isComplete)
         {
             // Arrange
-            var store = new Store<ApplicationState>(Reducers.ReduceApplication, new ApplicationState()
-            {
-                Filter = TodosFilter.All,
-                Todos = ImmutableArray.Create<Todo>(new Todo[]
-                {
-                    new Todo
-                    {
-                        Title = "title1",
-                        Id = new Guid(),
-                        IsCompleted = false
-                    },
-                    new Todo
-                    {
-                        Title = "title2",
-                        Id = new Guid(),
-                        IsCompleted = true
-                    }
-                })
-            });
+            Store<ApplicationState> store = StoreHelpers
+               .GetStore()
+               .AddTodo("title1", new Guid(), false)
+               .AddTodo("title2", new Guid(), true);
 
             // Act
             store.Dispatch(new AllTodosIsCompletedChangedAction() { IsCompleted = isComplete });
@@ -172,11 +116,7 @@ namespace TodoMvc.Tests
         public static void Filter_can_be_changed(TodosFilter filter)
         {
             // Arrange
-            var store = new Store<ApplicationState>(Reducers.ReduceApplication, new ApplicationState()
-            {
-                Filter = TodosFilter.All,
-                Todos = ImmutableArray.Create<Todo>()
-            });
+            Store<ApplicationState> store = StoreHelpers.GetStore();
 
             // Act
             store.Dispatch(new FilterChangedAction() { Filter = filter });
