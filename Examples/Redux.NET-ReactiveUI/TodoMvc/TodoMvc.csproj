@@ -51,7 +51,6 @@
     <Compile Include="States\TodosFilter.cs" />
     <Compile Include="ViewModels\ApplicationViewModel.cs" />
     <Compile Include="ViewModels\HeaderViewModel.cs" />
-    <Compile Include="ViewModels\MainViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

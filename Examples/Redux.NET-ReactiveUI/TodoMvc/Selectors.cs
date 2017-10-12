@@ -16,33 +16,6 @@ namespace TodoMvc
             };
         }
 
-        public static MainViewModel MakeMainViewModel(ApplicationState state)
-        {
-            IEnumerable<Todo> todos;
-
-            switch (state.Filter)
-            {
-                case TodosFilter.Active:
-                {
-                    todos = state.Todos.Where(x => !x.IsCompleted);
-                    break;
-                }
-                case TodosFilter.Completed:
-                {
-                    todos = state.Todos.Where(x => x.IsCompleted);
-                    break;
-                }
-                case TodosFilter.All:
-                default:
-                {
-                    todos = state.Todos;
-                }
-                break;
-            }
-
-            return new MainViewModel() { Todos = todos };
-        }
-
         public static HeaderViewModel MakeHeaderViewModel(ApplicationState state)
         {
             return new HeaderViewModel

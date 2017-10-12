@@ -12,13 +12,10 @@ namespace TodoMvc.App
     /// </summary>
     public partial class Footer : UserControl
     {
-        public FooterViewModel ViewModel { get; }
-
         public Footer()
         {
-            ViewModel = new FooterViewModel(App.Store);
+            DataContext = new FooterViewModel(App.Store);
             InitializeComponent();
-            DataContext = ViewModel;
         }
     }
 }

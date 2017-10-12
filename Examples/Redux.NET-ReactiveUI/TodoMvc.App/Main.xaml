@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="300">
     <Grid>
-        <ItemsControl x:Name="todos">
+        <ItemsControl ItemsSource="{Binding Path=Todos}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel />
@@ -21,17 +21,20 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-                        <CheckBox Grid.Column="0"
+                        <CheckBox x:Name="checkbox"
+                                  Grid.Column="0"
                                   IsChecked="{Binding IsCompleted}"
                                   Tag="{Binding Id}"
-                                  Click="CheckBox_Click"
-                                  VerticalAlignment="Center"/>
+                                  VerticalAlignment="Center"
+                                  Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.TodoCompletedChanged}"
+                                  CommandParameter="{Binding ElementName=checkbox}"/>
                         <Label Grid.Column="1" Content="{Binding Title}"/>
                         <Button x:Name="button"
                                 Grid.Column="2"
                                 Content="Delete"
                                 Tag="{Binding Id}"
-                                Click="Button_Click" />
+                                Command="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=DataContext.TodoDeleted}"
+                                CommandParameter="{Binding Id}" />
                     </Grid>
                     <DataTemplate.Triggers>
                         <Trigger SourceName="row" Property="IsMouseOver" Value="True">
