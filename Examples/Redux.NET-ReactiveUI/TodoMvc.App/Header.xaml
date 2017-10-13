@@ -11,7 +11,19 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <CheckBox x:Name="markAllAsComplete" Grid.Column="0" Click="markAllAsComplete_Click" VerticalAlignment="Center"/>
-        <TextBox x:Name="title" Grid.Column="1" PreviewKeyDown="title_PreviewKeyDown" />
+        <CheckBox x:Name="markAllAsComplete"
+                  Grid.Column="0"
+                  VerticalAlignment="Center"
+                  IsChecked="{Binding Path=MarkAllAsCompleteIsChecked, Mode=OneWay}"
+                  Command="{Binding Path=MarkAllAsComplete}"
+                  CommandParameter="{Binding ElementName=markAllAsComplete, Path=IsChecked}"/>
+        <TextBox x:Name="title"
+                 Grid.Column="1">
+            <TextBox.InputBindings>
+                <KeyBinding Key="Enter"
+                            Command="{Binding Path=TodoAdded}"
+                            CommandParameter="{Binding ElementName=title, Path=Text}"/>
+            </TextBox.InputBindings>
+        </TextBox>
     </Grid>
 </UserControl>

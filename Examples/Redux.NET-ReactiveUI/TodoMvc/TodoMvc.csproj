@@ -50,7 +50,6 @@
     <Compile Include="States\Todo.cs" />
     <Compile Include="States\TodosFilter.cs" />
     <Compile Include="ViewModels\ApplicationViewModel.cs" />
-    <Compile Include="ViewModels\HeaderViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

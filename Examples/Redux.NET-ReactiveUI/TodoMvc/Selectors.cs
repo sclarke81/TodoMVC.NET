@@ -15,14 +15,5 @@ namespace TodoMvc
                 MainAndFooterAreVisible = state.Todos.Any()
             };
         }
-
-        public static HeaderViewModel MakeHeaderViewModel(ApplicationState state)
-        {
-            return new HeaderViewModel
-            {
-                MarkAllAsCompleteIsChecked = state.Todos.All(x => x.IsCompleted),
-                MarkAllAsCompleteIsVisible = state.Todos.Any()
-            };
-        }
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Reactive.Linq;
-using System.Windows;
-using System.Windows.Controls;
-using TodoMvc.States;
+﻿using System.Windows.Controls;
 
 namespace TodoMvc.App
 {
