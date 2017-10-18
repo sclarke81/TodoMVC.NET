@@ -13,7 +13,9 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <local:Header x:Name="header" Grid.Row="0" />
-        <local:Main x:Name="main" Grid.Row="1" />
-        <local:Footer x:Name="footer" Grid.Row="2" />
+        <local:Main x:Name="main" Grid.Row="1" Visibility="{Binding RelativeSource={RelativeSource FindAncestor, 
+            AncestorType={x:Type Window}}, Path=DataContext.MainAndFooterVisibility}"/>
+        <local:Footer x:Name="footer" Grid.Row="2" Visibility="{Binding RelativeSource={RelativeSource FindAncestor, 
+            AncestorType={x:Type Window}}, Path=DataContext.MainAndFooterVisibility}"/>
     </Grid>
 </Window>

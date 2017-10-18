@@ -20,6 +20,5 @@ namespace TodoMvc.App
                 Todos = ImmutableArray.Create<Todo>()
             });
         }
-
     }
 }

@@ -16,7 +16,8 @@
                   VerticalAlignment="Center"
                   IsChecked="{Binding Path=MarkAllAsCompleteIsChecked, Mode=OneWay}"
                   Command="{Binding Path=MarkAllAsComplete}"
-                  CommandParameter="{Binding ElementName=markAllAsComplete, Path=IsChecked}"/>
+                  CommandParameter="{Binding ElementName=markAllAsComplete, Path=IsChecked}"
+                  Visibility="{Binding Path=MarkAllAsCompleteVisibility}"/>
         <TextBox x:Name="title"
                  Grid.Column="1">
             <TextBox.InputBindings>
