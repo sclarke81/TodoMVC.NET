@@ -56,36 +56,32 @@ namespace TodoMvc.Tests
         public static void TodoAdded_CommandWorks()
         {
             // Arrange
-            string todoTitle = "title";
-            Store<ApplicationState> store = StoreHelpers.GetStore();
+            var actionLogger = new LoggingMiddleware();
+            Store<ApplicationState> store = StoreHelpers.GetStore()
+                .AddMiddlewares(actionLogger.Middleware);
             var model = new HeaderViewModel(store);
 
             // Act
-            ((ICommand)model.TodoAdded).Execute(todoTitle);
+            ((ICommand)model.TodoAdded).Execute("");
 
             // Assert
-            store.GetState().Todos.Count().Should().Be(1);
-            store.GetState().Todos.First().Title.Should().Be(todoTitle);
+            actionLogger.LoggedActions.Where(a => a is TodoAddedAction).Count().Should().Be(1);
         }
 
-        [Theory]
-        [InlineData(false, false, false)]
-        [InlineData(true, false, false)]
-        [InlineData(false, true, true)]
-        [InlineData(true, true, true)]
-        public static void MarkAllAsComplete_CommandWorks(bool todoIsComplete, bool isComplete, bool expectedIsComplete)
+        [Fact]
+        public static void MarkAllAsComplete_CommandWorks()
         {
             // Arrange
+            var actionLogger = new LoggingMiddleware();
             Store<ApplicationState> store = StoreHelpers.GetStore()
-                .AddTodo("title", new Guid(), todoIsComplete)
-                .AddTodo("title", new Guid(), todoIsComplete);
+                .AddMiddlewares(actionLogger.Middleware);
             var model = new HeaderViewModel(store);
 
             // Act
-            ((ICommand)model.MarkAllAsComplete).Execute(isComplete);
+            ((ICommand)model.MarkAllAsComplete).Execute(true);
 
             // Assert
-            store.GetState().Todos.All(x => x.IsCompleted).Should().Be(expectedIsComplete);
+            actionLogger.LoggedActions.Where(a => a is AllTodosIsCompletedChangedAction).Count().Should().Be(1);
         }
     }
 }

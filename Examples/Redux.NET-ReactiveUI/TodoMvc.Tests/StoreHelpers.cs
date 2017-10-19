@@ -29,5 +29,10 @@ namespace TodoMvc.Tests
 
             return new Store<ApplicationState>(Reducers.ReduceApplication, state);
         }
+
+        public static Store<ApplicationState> AddMiddlewares(this Store<ApplicationState> currentStore, params Middleware<ApplicationState>[] middlewares)
+        {
+            return new Store<ApplicationState>(Reducers.ReduceApplication, currentStore.GetState(), middlewares);
+        }
     }
 }
