@@ -33,7 +33,7 @@ namespace TodoMvc.ViewModels
                  .DistinctUntilChanged()
                  .ToProperty(this, x => x.MarkAllAsCompleteVisibility, out _markAllAsCompleteVisibility);
 
-            store.Select(s => s.Todos.All(x => x.IsCompleted))
+            store.Select(s => s.Todos.Any() && s.Todos.All(x => x.IsCompleted))
                  .DistinctUntilChanged()
                  .ToProperty(this, x => x.MarkAllAsCompleteIsChecked, out _markAllAsCompleteIsChecked);
         }
