@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="TodoMvc.App.Footer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TodoMvc.App"
+             xmlns:todoStates="clr-namespace:TodoMvc.States;assembly=TodoMvc"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="400">
+    <Grid>
+        <Label HorizontalAlignment="Left" Content="{Binding Path=CounterText, Mode=OneWay}"/>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Center">
+            <StackPanel.Resources>
+                <Style TargetType="RadioButton">
+                    <Setter Property="Margin" Value="5" />
+                </Style>
+            </StackPanel.Resources>
+            <RadioButton Content="All"
+                         IsChecked="{Binding Path=FilterAllIsChecked, Mode=OneWay}"
+                         Command="{Binding Path=FilterChanged}"
+                         CommandParameter="{x:Static todoStates:TodosFilter.All}"/>
+            <RadioButton Content="Active"
+                         IsChecked="{Binding Path=FilterActiveIsChecked, Mode=OneWay}"
+                         Command="{Binding Path=FilterChanged}"
+                         CommandParameter="{x:Static todoStates:TodosFilter.Active}"/>
+            <RadioButton Content="Completed"
+                         IsChecked="{Binding Path=FilterCompletedIsChecked, Mode=OneWay}"
+                         Command="{Binding Path=FilterChanged}"
+                         CommandParameter="{x:Static todoStates:TodosFilter.Completed}"/>
+        </StackPanel>
+        <Button Content="Clear completed"
+                HorizontalAlignment="Right"
+                Command="{Binding Path=ClearCompleted}"
+                Visibility="{Binding Path=ClearCompletedVisibility, Mode=OneWay}"/>
+    </Grid>
+</UserControl>
