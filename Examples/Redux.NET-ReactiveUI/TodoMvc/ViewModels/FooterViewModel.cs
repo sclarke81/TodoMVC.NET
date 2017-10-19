@@ -5,8 +5,9 @@ using System.Windows;
 using ReactiveUI;
 using Redux;
 using TodoMvc.States;
+using TodoMvc.Store;
 
-namespace TodoMvc.App
+namespace TodoMvc.ViewModels
 {
     public class FooterViewModel : ReactiveObject
     {

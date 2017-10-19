@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using TodoMvc.ViewModels;
 
 namespace TodoMvc.App
 {

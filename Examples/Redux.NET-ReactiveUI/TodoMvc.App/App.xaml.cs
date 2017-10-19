@@ -2,6 +2,7 @@
 using System.Windows;
 using Redux;
 using TodoMvc.States;
+using TodoMvc.Store;
 
 namespace TodoMvc.App
 {

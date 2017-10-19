@@ -2,7 +2,7 @@
 using Redux;
 using TodoMvc.States;
 
-namespace TodoMvc
+namespace TodoMvc.Store
 {
     public class TodoAddedAction : IAction
     {

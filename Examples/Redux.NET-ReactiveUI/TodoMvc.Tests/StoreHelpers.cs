@@ -2,6 +2,7 @@
 using System.Collections.Immutable;
 using Redux;
 using TodoMvc.States;
+using TodoMvc.Store;
 
 namespace TodoMvc.Tests
 {

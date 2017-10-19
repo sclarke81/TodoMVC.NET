@@ -5,7 +5,7 @@ using ReactiveUI;
 using Redux;
 using TodoMvc.States;
 
-namespace TodoMvc.App
+namespace TodoMvc.ViewModels
 {
     public class MainWindowViewModel : ReactiveObject
     {

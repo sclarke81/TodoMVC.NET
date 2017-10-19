@@ -4,6 +4,7 @@ using FluentAssertions;
 using Redux;
 using TodoMvc.States;
 using Xunit;
+using TodoMvc.Store;
 
 namespace TodoMvc.Tests
 {

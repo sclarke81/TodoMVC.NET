@@ -4,7 +4,7 @@ using System.Collections.Immutable;
 using System.Linq;
 using TodoMvc.States;
 
-namespace TodoMvc
+namespace TodoMvc.Store
 {
     public static class Reducers
     {

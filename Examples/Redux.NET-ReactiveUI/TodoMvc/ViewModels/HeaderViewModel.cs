@@ -5,8 +5,9 @@ using ReactiveUI;
 using Redux;
 using TodoMvc.States;
 using System;
+using TodoMvc.Store;
 
-namespace TodoMvc.App
+namespace TodoMvc.ViewModels
 {
     public class HeaderViewModel : ReactiveObject
     {
