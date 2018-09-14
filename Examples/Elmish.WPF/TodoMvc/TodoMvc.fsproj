@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net471</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Elmish.WPF" Version="2.0.0-beta-2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TodoMvc.Types\TodoMvc.Types.csproj" />
+    <ProjectReference Include="..\TodoMvc.Views\TodoMvc.Views.csproj">
+      <Private>true</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,61 @@
+﻿<UserControl
+    x:Class="TodoMvc.Views.Main"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:local="clr-namespace:TodoMvc.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="100"
+    d:DesignWidth="300"
+    mc:Ignorable="d">
+    <Grid>
+        <ItemsControl ItemsSource="{Binding Todos}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid x:Name="row">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <CheckBox
+                            x:Name="isComplete"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}, Path=DataContext.ChangeCompletedState}"
+                            IsChecked="{Binding IsCompleted, Mode=OneWay}">
+                            <CheckBox.CommandParameter>
+                                <MultiBinding Converter="{local:TupleConverter}">
+                                    <Binding Path="Id" />
+                                    <Binding ElementName="isComplete" Path="IsChecked" />
+                                </MultiBinding>
+                            </CheckBox.CommandParameter>
+                        </CheckBox>
+                        <Label Grid.Column="1" Content="{Binding Title, Mode=OneWay}" />
+                        <Button
+                            x:Name="deleteButton"
+                            Grid.Column="2"
+                            Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}, Path=DataContext.Delete}"
+                            CommandParameter="{Binding Id}"
+                            Content="Delete" />
+                    </Grid>
+                    <DataTemplate.Triggers>
+                        <Trigger SourceName="row" Property="IsMouseOver" Value="True">
+                            <Setter TargetName="deleteButton" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger SourceName="row" Property="IsMouseOver" Value="False">
+                            <Setter TargetName="deleteButton" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+
+        </ItemsControl>
+    </Grid>
+</UserControl>
